@@ -1,0 +1,139 @@
+
+
+<body>
+    <header>
+        <nav id="nav1" class="bord1 navbar navbar-expand-sm navbar-toggleable-sm box-shadow mb-3">
+            <div class="container">
+
+                
+                
+              <a [routerLink]="['/']"><img src="../assets/images/logoflowerstore.png" style="height: 70px; width: 120px;cursor:pointer;"></a>
+                
+               
+
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+
+                       
+                        <li class="nav-item">
+                            <a [routerLink]="['/register']" style="color: black; margin-left: 40px;cursor:pointer;" class="nav-link" >Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a [routerLink]="['/']" style="color: black; margin-left: 40px;cursor:pointer;" class="nav-link" >Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a [routerLink]="['/privacy']" style="color: black; margin-left: 40px;cursor:pointer;" class="nav-link" >Privacy</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+  
+  
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-3 col-md-2"></div>
+          <div class="col-lg-6 col-md-8 login-box">
+              <div class="col-lg-12 login-key">
+                  <img src="../assets/images/loginlogo.jpg" id="imgloginlogo">
+                  <br>
+              </div>
+              <div id="headtext" class="col-lg-12 login-title">
+                  SIGN-IN PANEL
+              </div>
+  
+              <div class="col-lg-12 login-form">
+                  <div class="col-lg-12 login-form">
+
+                      <form [formGroup]="edit_emp" (ngSubmit)="getid_loginapi(phone, password, vendor)">
+                          
+  
+                          <div class="form-group">
+                              <label class="form-control-label">PHONE</label> 
+                              <input type="text" style="border: none;border-bottom: 2px solid #0DB8DE;" formControlName="phone" pattern="[1-9]{1}[0-9]{9}" name="tempPhone" [(ngModel)]="phone" maxlength="10" class="form-control input-box" required>
+                              <!-- <span class="unit">+ 91 </span> -->
+                              <!-- <div class="error" *ngIf="edit_emp.controls['phone'].errors?.minlength">Minimum length of Phone number is 10.</div> -->
+                              <div class="error" *ngIf="edit_emp.controls['phone'].invalid && edit_emp.controls['phone'].touched">Invalid Phone number.</div>
+                            </div>
+
+                          
+
+                          <div class="form-group">
+                              <label class="form-control-label">PASSWORD</label>
+                              <input type="password" formControlName="password" name="tempPass" [(ngModel)]="password" class="form-control" i required>
+                              <div class="error" *ngIf="edit_emp.controls['password'].invalid && edit_emp.controls['password'].touched">Password field is required.</div>
+                            </div>
+  
+                          <br>
+  
+                          <div id="rdb1" class="form-group">
+  
+  
+                              <input formControlName="vendor" name="Vendor" [(ngModel)]="vendor" type="radio" value="User">
+                              <label id="lb1">User</label>
+  
+  
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+  
+                              <input formControlName="vendor" name="Vendor" [(ngModel)]="vendor" type="radio" value="Admin">
+                              <label id="lb1">Vendor</label>
+  
+                              <div class="error" *ngIf="edit_emp.controls['vendor'].invalid && edit_emp.controls['vendor'].touched">This field is required.</div>
+                          </div>
+  
+                          <div class="col-lg-12 loginbttm">
+                              <div class="col-lg-6 login-btm login-text">
+                                  <!-- Error Message  -->
+  
+                                  
+  
+                              </div>
+                              <div class="col-lg-6 login-btm login-button" style="cursor:not-allowed;">
+                                  <button type="submit" style="width: 80%;"  [disabled]="!edit_emp.valid" class="btn btn-outline-primary" disabled>LOGIN</button>
+                              </div>
+                              <!-- <div class="error" *ngIf="edit_emp.invalid">Invalid Username/Password</div> -->
+                          </div>
+                      </form>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-2"></div>
+          </div>
+  
+          <br><br><br><br><br>
+      </div>
+  </div>
+  
+  
+  
+  
+  
+   
+
+    <footer id="foo1" class="bord2 footer text-muted">
+        <div id="footxt" class="container">
+            &copy; 2021 - FlowerStore - Angular and Asp.net API
+        </div>
+    </footer>
+
+
+
+</body> 
+

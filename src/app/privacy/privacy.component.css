@@ -1,0 +1,32 @@
+
+    #nav1, #foo1 {
+                background-color: #ff7f50;
+            }
+    
+            .bord1 {
+                border-bottom: 3px solid #000;
+            }
+    
+            .bord2 {
+              height: 80px;
+                border-top: 3px solid #000;
+            }
+    
+            #footxt {
+              margin-top: 25px;
+                color: #000;
+            }
+
+            #div1{
+                margin-left: 20px;
+            }
+    
+
+            body {
+            background-image: url('../../assets/images/bg-image.jpg');
+            background-repeat: no-repeat;
+            background-position: center; /* Center the image */
+            background-size: cover; /* Resize the background image to cover the entire container */
+            background-attachment: fixed;
+        }
+

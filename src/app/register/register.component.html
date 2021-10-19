@@ -1,0 +1,169 @@
+
+
+<body>
+    <header>
+        <nav id="nav1" class="bord1 navbar navbar-expand-sm navbar-toggleable-sm box-shadow mb-3">
+            <div class="container">
+
+                
+                
+              <a [routerLink]="['/']"><img src="../assets/images/logoflowerstore.png" style="height: 70px; width: 120px;cursor:pointer;"></a>
+                
+               
+
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+
+                       
+                        <li class="nav-item">
+                            <a [routerLink]="['/register']" style="color: black; margin-left: 40px;cursor:pointer;" class="nav-link" >Register</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a [routerLink]="['/']" style="color: black; margin-left: 40px; cursor:pointer;" class="nav-link" >Login</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a [routerLink]="['/privacy']" style="color: black; margin-left: 40px;cursor:pointer;" class="nav-link" >Privacy</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+  
+  
+<form [formGroup]="edit_emp" #regForm="ngForm" (ngSubmit)="postid_registerapi()">
+
+    <div class="col-lg-12 login-key">
+        <img src="../../assets/images/loginlogo.jpg" id="imgloginlogo">
+        <br>
+    </div>
+    <div id="headtext" class="col-lg-12 login-title">
+        REGISTERATION PANEL
+    </div>
+    <br><br>
+
+
+    <label>
+        <p class="label-txt">ENTER YOUR FULL NAME</p>
+        <input type="text" formControlName="name" class="input" [(ngModel)]="customer.name"  required maxlength="49">
+        <div class="error" *ngIf="edit_emp.controls['name'].errors?.minlength">Minimum length of name is 4.</div>
+        <div class="error" *ngIf="edit_emp.controls['name'].errors?.maxlength">Maximum length of name is 20.</div>
+        <div class="error" *ngIf="edit_emp.controls['name'].invalid && edit_emp.controls['name'].touched">Enter valid name.</div>
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+
+    <br><br>
+
+    <label>
+        <p class="label-txt">ENTER YOUR EMAIL</p>
+        <input type="email" formControlName="email" class="input" [(ngModel)]="customer.email"  required maxlength="100">
+        <div class="error" *ngIf="edit_emp.controls['email'].invalid && edit_emp.controls['email'].touched">Email field is required.</div>
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+
+    <br><br>
+
+    <label>
+        <p class="label-txt">ENTER YOUR PASSWORD</p>
+        <input type="password" formControlName="password" class="input" [(ngModel)]="customer.password" required minlength="6">
+        <div class="error" *ngIf="edit_emp.controls['password'].errors?.minlength">Minimum length of Password is 6.</div>
+        <div class="error" *ngIf="edit_emp.controls['password'].invalid && edit_emp.controls['password'].touched">Password field is required.</div>
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+
+    <br><br>
+
+    <label>
+        <p class="label-txt">ENTER YOUR PHONE</p>
+        
+        <input type="text" formControlName="phone" class="input input-box" pattern="[1-9]{1}[0-9]{9}" [(ngModel)]="phone" required maxlength="10" >
+        <span class="unit">+ 91 </span>
+        <div class="error" *ngIf="edit_emp.controls['phone'].errors?.minlength">Minimum length of Phone number is 10.</div>
+        <div class="error" *ngIf="edit_emp.controls['phone'].invalid && edit_emp.controls['phone'].touched">Invalid Phone number.</div>
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+
+    <br><br>
+
+    <label>
+        <p class="label-txt">ENTER YOUR ADDRESS</p>
+        <input type="text" formControlName="address" class="input" [(ngModel)]="customer.address" required maxlength="200">
+        <div class="error" *ngIf="edit_emp.controls['address'].invalid && edit_emp.controls['address'].touched">Address field is required.</div>
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+
+    <br><br>
+
+        <div id="rdbDiv">
+            <input type="radio" formControlName="vendor" value="User" name="Vendor" [(ngModel)]="customer.vendor">
+            <label id="lb1">User</label>
+
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <input type="radio" formControlName="vendor" value="Admin" name="Vendor" [(ngModel)]="customer.vendor">
+            <label id="lb1">Vendor</label>
+            <div class="error" *ngIf="edit_emp.controls['vendor'].invalid && edit_emp.controls['vendor'].touched">This field is required.</div>
+        </div>
+
+    <br><br>
+
+    <div class="col-lg-6 login-btm login-text">
+
+        <!-- error Message -->
+
+    </div>
+
+    <br>
+    <div class="col-lg-6 login-btm login-button" style="cursor:not-allowed;">
+        <button id="btnReg" style="width: 80%;" type="submit" [disabled]="!edit_emp.valid" class="btn btn-outline-primary" disabled>REGISTER</button>
+    </div>
+   
+
+</form>
+
+
+  
+  
+  
+  
+  
+  
+   
+
+    <footer id="foo1" class="bord2 footer text-muted">
+        <div id="footxt" class="container">
+            &copy; 2021 - FlowerStore - Angular and Asp.net API
+        </div>
+    </footer>
+
+
+
+</body> 
