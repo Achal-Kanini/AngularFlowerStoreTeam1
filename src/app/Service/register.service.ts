@@ -9,7 +9,8 @@ import { Observable, throwError } from "rxjs";
 })
 export class RegisterService {
 
-  private regUrl = 'https://localhost:44327/api/Customer/';
+  // private regUrl = 'https://localhost:44327/api/Customer/';
+  private regUrl = 'https://customerapiflower.azurewebsites.net/api/Customer/'
      
      constructor(private http: HttpClient) { }
      
