@@ -12,6 +12,8 @@ import { FlowerService } from '../Service/flower-service';
 })
 export class EditflowerComponent implements OnInit {
   remark: string;
+  admin:boolean=true;
+usertype:string|null='';
   flowerdetails :Flower={id: 0,
     name: "",
     occassion: "",
@@ -30,6 +32,11 @@ export class EditflowerComponent implements OnInit {
   constructor(private router: Router,private route:ActivatedRoute, private obj: FlowerService,private jwtHelper:JwtHelperService) {this.remark = ""}
 
   ngOnInit(): void {
+    this.usertype=localStorage.getItem("userType");
+    if(this.usertype=="User"){
+
+  this.admin=false;
+}
     const cart_id=Number(this.route.snapshot.paramMap.get('id'));
     this.getflowerid_api(cart_id);
     

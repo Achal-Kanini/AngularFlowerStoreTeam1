@@ -92,7 +92,7 @@
   
                   
   
-                                   <li class="nav-item">
+                                   <li  class="nav-item">
                                        <a [routerLink]="['/cart']" style="color: black; margin-left: 40px;" class="nav-link">
                                            <i class="fa fa-shopping-cart"></i>
                                        </a>
@@ -175,7 +175,7 @@
                 {{item.quantity}}
             </td>
             <td>
-                {{item.itemPrice*item.quantity}}
+                {{item.itemPrice*item.quantity | currency:'INR'}}
             </td>
             <td>
 

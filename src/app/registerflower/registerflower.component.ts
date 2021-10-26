@@ -28,11 +28,16 @@ export class RegisterflowerComponent implements OnInit {
     status:"",
     flower:this.flowerdetails
   }
+  usertype:string|null="";
+  Admin:boolean = true;
   data:any;
   constructor(private router: Router,private route:ActivatedRoute, private obj: FlowerService,private jwtHelper:JwtHelperService) {this.remark = ""}
 
   ngOnInit(): void {
-  
+    this.usertype=localStorage.getItem("userType"); 
+    if(this.usertype=="User"){ 
+      this.Admin=false;
+    }
     
   }
   fileloader(){

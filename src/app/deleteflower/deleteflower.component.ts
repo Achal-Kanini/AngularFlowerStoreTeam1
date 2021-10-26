@@ -27,12 +27,18 @@ export class DeleteflowerComponent implements OnInit {
     status:"",
     flower:this.flowerdetails
   }
+  admin:boolean=true;
+usertype:string|null='';
   msg: string='';
   constructor(private router: Router,private route:ActivatedRoute, private obj: FlowerService,private jwtHelper:JwtHelperService) {this.remark = ""}
 
   ngOnInit(): void {
     const cart_id=Number(this.route.snapshot.paramMap.get('id'));
     this.getflowerid_api(cart_id);
+    this.usertype=localStorage.getItem("userType");
+    if(this.usertype=="User"){
+      this.admin=false;
+    }
     
   }
   getflowerid_api(id:number):void

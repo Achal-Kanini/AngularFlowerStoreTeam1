@@ -8,10 +8,10 @@ import { ICustomer } from "../../../Models/ICustomer";
 @Injectable({ providedIn:'root' }) 
  
 export class LoginServService{ 
-     // private loginUrl = 'https://localhost:44327/api/Customer/';
-     private loginUrl = 'https://customerapiflower.azurewebsites.net/api/Customer/'
-     // private req = "https://localhost:44311/api/Auth";
-     private req = "https://jwtteam1.azurewebsites.net/api/Auth";
+     private loginUrl = 'https://localhost:44327/api/Customer/';
+     // private loginUrl = 'https://customerapiflower.azurewebsites.net/api/Customer/'
+     private req = "https://localhost:44311/api/Auth";
+     // private req = "https://jwtteam1.azurewebsites.net/api/Auth";
      
      constructor(private http: HttpClient) { }
      

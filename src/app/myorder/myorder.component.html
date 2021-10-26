@@ -92,7 +92,7 @@
   
                   
   
-                                   <li class="nav-item">
+                                   <li *ngIf='!Admin' class="nav-item">
                                        <a [routerLink]="['/cart']" style="color: black; margin-left: 40px;" class="nav-link">
                                            <i class="fa fa-shopping-cart"></i>
                                        </a>
@@ -140,7 +140,6 @@
             <thead>
                 <tr style="border: 2px solid red;">
                     <th>Order number</th>
-                    <th>Flower id</th>
                     <th>Total price</th>
                     <th>Remark</th>
                     <th>Order status</th>
@@ -149,8 +148,7 @@
             <tbody *ngFor="let item of orderdetails">
                 <tr>
                     <td>{{item.orderId}}</td>
-                    <td>{{item.flowerId}}</td>
-                    <td>{{item.totalprice}}</td>
+                    <td>{{item.totalprice | currency:'INR'}}</td>
                     <td>{{item.remark}}</td>
                     <td>{{item.paymentStatus}}</td>
                     <td *ngIf="Admin">
