@@ -54,9 +54,13 @@ performFilter(filterBy: string): IFlower[] {
   return this.flowers.filter((flowers: IFlower) =>
   flowers.occassion.toLocaleLowerCase().includes(filterBy));
 }
+custname : string|null = "";
+ 
+
 constructor(private productService: FlowerService,
     private sanitizer : DomSanitizer,private jwtHelper:JwtHelperService) {}
   ngOnInit(): void {
+    this.custname = localStorage.getItem("custname");
     this.usertype=localStorage.getItem("userType");
     if(this.usertype=="User"){
 

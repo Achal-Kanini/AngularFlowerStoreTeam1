@@ -92,11 +92,11 @@
   
                   
   
-                                   <li class="nav-item">
+                                   <!-- <li class="nav-item">
                                        <a [routerLink]="['/cart']" style="color: black; margin-left: 40px;" class="nav-link">
                                            <i class="fa fa-shopping-cart"></i>
                                        </a>
-                                   </li>
+                                   </li> -->
   
   
                    <div style="margin-right: 20px;" class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
@@ -105,13 +105,13 @@
                                <div class="dropdown">
                                    <button class="dropbtn">
                                        <i class='fas fa-user-circle'></i>
-  
+  Hi {{custname}}
                                        <i style="height: 18px; width: 18px;" class="fa fa-caret-down"></i>
                                    </button>
                                    <div class="dropdown-content">
   
                                            <a [routerLink]="['/myorder']" style="margin-left:5px;" class="nav-link">
-                                               My Orders
+                                               Orders
                                            </a>
   
                                        <!-- <a  [routerLink]="['/manageProfile']" style="margin-left:5px;" class="nav-link">Manage Profile</a> -->
@@ -144,7 +144,7 @@
         <div class="form-group">
             
             <!-- <input asp-for="FlowerId" readonly="readonly" class="form-control" hidden/> -->
-            <label for="flowerid">Flower ID: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="flowerid">Flower ID: </label>&nbsp;&nbsp;
             <input readonly="readonly" id="flowerid" [(ngModel)]="orders.flowerId" [ngModelOptions]="{standalone: true}" placeholder="flowerid">
             
         </div>
@@ -159,19 +159,19 @@
         <br>
         <div class="form-group">
             
-            <label for="total">Total Price: </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="total">Total Price: </label> &nbsp;&nbsp;
             <input  readonly="readonly" id="total" [(ngModel)]="orders.totalprice" [ngModelOptions]="{standalone: true}" placeholder="total">
             
         </div>
         <br>
         <div class="form-group">
             
-            <label for="total">Remarks: </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="total">Remarks: </label> &nbsp;&nbsp;
             <input  readonly="readonly" id="total" [(ngModel)]="orders.remark" [ngModelOptions]="{standalone: true}" placeholder="total">
             
         </div>
         <br>
-        <label for="status">Status: </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="status">Status: </label> &nbsp;&nbsp;
             <!-- <select>
                 <option *ngFor="let x of names" [value]="x">
                 {{x}}
@@ -185,7 +185,7 @@
 
             <!-- <input style="background-color: forestgreen; width: 150px; height: 50px; text-align: center; font-weight: bold;" type="submit" value="Place order" class="btn btn-primary" /> -->
         <!-- <button class="btn btn-primary" [routerLink]="['/myorder']">Place Order</button> -->
-        <button class="btn btn-primary" (click)="putStatus()">PLace Order</button>
+        <button class="btn btn-primary" (click)="putStatus()">Update</button>
     </form>
    </div>
 <!-- <script> var app = angular.module('myApp', []); app.controller('myCtrl', function($scope) { $scope.names = ["Pending","Approved","Out for delivery","Delivered"]; }); </script> -->

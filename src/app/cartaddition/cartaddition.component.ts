@@ -29,9 +29,12 @@ export class CartadditionComponent implements OnInit {
     status:"",
     
   }
+  custname : string|null = "";
+  
   constructor(private router: Router,private route:ActivatedRoute, private obj: FlowerService,private obj1:CartServiceService,private jwtHelper:JwtHelperService) {this.remark = ""}
 
   ngOnInit(): void {
+    this.custname = localStorage.getItem("custname");
 
     const cart_id=Number(this.route.snapshot.paramMap.get('id'));
     this.getflowerid_api(cart_id);

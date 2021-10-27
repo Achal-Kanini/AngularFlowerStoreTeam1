@@ -60,6 +60,8 @@ export class RegisterComponent implements OnInit {
 
         this.router.navigate(['/']);
 
+      },function(){
+        alert("User already exists");
       })
   }
   

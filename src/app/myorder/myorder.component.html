@@ -105,13 +105,13 @@
                                <div class="dropdown">
                                    <button class="dropbtn">
                                        <i class='fas fa-user-circle'></i>
-  
+                                       Hi {{custname}}
                                        <i style="height: 18px; width: 18px;" class="fa fa-caret-down"></i>
                                    </button>
                                    <div class="dropdown-content">
   
                                            <a [routerLink]="['/myorder']" style="margin-left:5px;" class="nav-link">
-                                               My Orders
+                                               Orders
                                            </a>
   
                                        <!-- <a  [routerLink]="['/manageProfile']" style="margin-left:5px;" class="nav-link">Manage Profile</a> -->
@@ -140,6 +140,7 @@
             <thead>
                 <tr style="border: 2px solid red;">
                     <th>Order number</th>
+                    <th>Date</th>
                     <th>Total price</th>
                     <th>Remark</th>
                     <th>Order status</th>
@@ -147,7 +148,7 @@
             </thead>
             <tbody *ngFor="let item of orderdetails">
                 <tr>
-                    <td>{{item.orderId}}</td>
+                    <!-- <td>{{item.orderId}}</td>
                     <td>{{item.totalprice | currency:'INR'}}</td>
                     <td>{{item.remark}}</td>
                     <td>{{item.paymentStatus}}</td>
@@ -156,6 +157,19 @@
                     </td>
                     <td *ngIf="!Admin"><button type="button"
                             (click)="downloadPDf(item.orderId,item.flowerId,item.totalprice,item.remark,item.paymentStatus)">Download
+                            bill</button>
+                    </td> -->
+
+                    <td>{{item.orderId}}</td>
+                    <td>{{item.dateOfPlaced | date}}</td>
+                    <td>{{item.totalprice | currency:'INR'}}</td>
+                    <td>{{item.remark}}</td>
+                    <td>{{item.paymentStatus}}</td>
+                    <td *ngIf="Admin">
+                        <button class="btn btn-primary" [routerLink]="['/updateStatus',item.orderId]">Update Status</button> 
+                    </td>
+                    <td *ngIf="!Admin"><button type="button"
+                            (click)="downloadPDf(item.orderId,item.flowerId,item.totalprice,item.remark,item.paymentStatus,item.dateOfPlaced)">Download
                             bill</button>
                     </td>
                 </tr>      
@@ -166,6 +180,10 @@
 
         </table>
     </div>
+
+    <br>
+    <br>
+    <br>
 
     <footer id="foo1" class="bord2 footer text-muted">
         <div id="footxt" class="container">

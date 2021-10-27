@@ -30,20 +30,30 @@ export class RegisterflowerComponent implements OnInit {
   }
   usertype:string|null="";
   Admin:boolean = true;
-  data:any;
+  data:File|any;
+  custname : string|null = "";
+ 
+
   constructor(private router: Router,private route:ActivatedRoute, private obj: FlowerService,private jwtHelper:JwtHelperService) {this.remark = ""}
 
   ngOnInit(): void {
+    this.custname = localStorage.getItem("custname");
     this.usertype=localStorage.getItem("userType"); 
     if(this.usertype=="User"){ 
       this.Admin=false;
     }
+
     
   }
+
   fileloader(){
-     this.data=encodeImageFileAsURL();
+    this.data = encodeImageFileAsURL();
+
+    // var base64 = btoa(this.data);
+    // console.log("bas64 is "+base64);
     console.log("data",this.data);
   }
+
   PostFlower():void{
     console.log(this.flowerdetails);
     this.obj.AddFlowerDetails(this.flowerdetails).subscribe(data=>

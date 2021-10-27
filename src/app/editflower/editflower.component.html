@@ -111,13 +111,13 @@
                                <div class="dropdown">
                                    <button class="dropbtn">
                                        <i class='fas fa-user-circle'></i>
-  
+                                       Hi {{custname}}
                                        <i style="height: 18px; width: 18px;" class="fa fa-caret-down"></i>
                                    </button>
                                    <div class="dropdown-content">
   
                                            <a [routerLink]="['/myorder']" style="margin-left:5px;" class="nav-link">
-                                               My Orders
+                                            Orders
                                            </a>
   
                                        <!-- <a  [routerLink]="['/manageProfile']" style="margin-left:5px;" class="nav-link">Manage Profile</a> -->
@@ -156,25 +156,25 @@
             availableQuantity: 0,
             flImage: -->
                <!-- <input asp-for="FlowerId" readonly="readonly" class="form-control" hidden/> -->
-               <label for="flowerid">Flower Name: </label>
+               <label for="flowerid">Flower Name: </label> &nbsp;
                <input style="position: relative; right:  px;"  id="flowerid" [(ngModel)]="flowerdetails.name" [ngModelOptions]="{standalone: true}" placeholder="name">
                
            </div>
        <br>
            <div class="form-group">
                
-               <label for="customerid">Occassion: </label>
+               <label for="customerid">Occassion: </label> &nbsp;&nbsp;&nbsp;&nbsp;
                <input style="position: relative; right: px;"  id="customerid" [(ngModel)]="flowerdetails.occassion" [ngModelOptions]="{standalone: true}" placeholder="occassion">
                
            </div>
            <br>
            <div class="form-group">
                
-               <label for="cartid">Unit Price: </label>
+               <label for="cartid">Unit Price: </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <input style="position: relative; right: px;"  id="cartid" [(ngModel)]="flowerdetails.unitPrice" [ngModelOptions]="{standalone: true}" placeholder="unitPrice">
                
            </div>
-           
+           <br>
 
                <!-- <input style="background-color: forestgreen; width: 150px; height: 50px; text-align: center; font-weight: bold;" type="submit" value="Place order" class="btn btn-primary" /> -->
            <button class="btn btn-primary" (click)="putFlowerDetails()">Update Flower</button>

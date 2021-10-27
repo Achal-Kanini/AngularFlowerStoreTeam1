@@ -14,6 +14,8 @@ export class EditflowerComponent implements OnInit {
   remark: string;
   admin:boolean=true;
 usertype:string|null='';
+custname : string|null = "";
+  
   flowerdetails :Flower={id: 0,
     name: "",
     occassion: "",
@@ -32,6 +34,7 @@ usertype:string|null='';
   constructor(private router: Router,private route:ActivatedRoute, private obj: FlowerService,private jwtHelper:JwtHelperService) {this.remark = ""}
 
   ngOnInit(): void {
+    this.custname = localStorage.getItem("custname");
     this.usertype=localStorage.getItem("userType");
     if(this.usertype=="User"){
 

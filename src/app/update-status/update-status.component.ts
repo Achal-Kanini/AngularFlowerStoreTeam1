@@ -16,12 +16,13 @@ export class UpdateStatusComponent implements OnInit {
     flowerId:0,
     totalprice:0,
     remark:"",
-    paymentStatus:"",
-
+    paymentStatus:"", 
+    dateOfPlaced: new Date() 
   }
 
   names=["Pending","Approved","Out for delivery","Delivered"];
   selected:string="";
+  custname: string | null="";
 
   //option:string="";
   //update(e:string){ this.selected = e.target.value }
@@ -32,6 +33,7 @@ export class UpdateStatusComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.custname = localStorage.getItem("custname");
     const cart_id=Number(this.route.snapshot.paramMap.get('id'));
     this.getid_api(cart_id);
   }

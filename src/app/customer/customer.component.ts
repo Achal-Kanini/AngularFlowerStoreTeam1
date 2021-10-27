@@ -34,6 +34,9 @@ export class CustomerComponent implements OnInit {
   }
   token:string="";
 
+  custname : string|null = "";
+  
+
   edit_emp: FormGroup;
   constructor(public fb:FormBuilder,private router: Router, private obj: LoginServService,private jwtHelper:JwtHelperService) { 
 
@@ -48,6 +51,7 @@ export class CustomerComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.custname = localStorage.getItem("custname");
     // this.getid_api();
   }
 
@@ -70,12 +74,13 @@ export class CustomerComponent implements OnInit {
           console.log(this.token);  
 
           localStorage.setItem("custmid",this.customer.id.toString());
+          localStorage.setItem("custname",this.customer.name);
           localStorage.setItem("userType",this.customer.vendor);
 
           this.router.navigate(['/flower']);
          // this.status=true;
         },function(){
-          alert("Invalid Username/Password");
+          alert("Please check the credentials entered");
         })
         
       })

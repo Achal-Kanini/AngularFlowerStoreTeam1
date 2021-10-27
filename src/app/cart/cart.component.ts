@@ -32,10 +32,12 @@ custmid:number=0;
     status:"",
     flower:this.flowerdetails
   }
-  
+  custname : string|null = "";
+ 
   constructor(private router: Router, private obj: CartServiceService,private jwtHelper:JwtHelperService) { this.firstnum = 0,this.cusid = 0}
 
   ngOnInit(): void {
+    this.custname = localStorage.getItem("custname");
     this.custmid = Number(localStorage.getItem("custmid"));
 this.get_apibyCustId(this.custmid);
   }

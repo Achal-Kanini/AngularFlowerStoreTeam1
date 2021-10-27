@@ -40,10 +40,14 @@ export class AddToCartComponent implements OnInit {
     "remark": "",
     "paymentStatus": "",
   }
+  custname : string|null = "";
   
   constructor(private router: Router,private route:ActivatedRoute, private obj: CartServiceService,private jwtHelper:JwtHelperService) {this.remark = ""}
 
   ngOnInit(): void {
+
+    this.custname = localStorage.getItem("custname");
+
     const cart_id=Number(this.route.snapshot.paramMap.get('cartId'));
     this.getcartbycartID(cart_id);
   }
@@ -59,6 +63,7 @@ export class AddToCartComponent implements OnInit {
         this.orderdetail.customerId = this.cartdetails.customerId;
         this.orderdetail.flowerId = this.cartdetails.flowerId;
         this.orderdetail.totalprice = this.cartdetails.quantity*this.cartdetails.itemPrice;
+
         this.orderdetail.paymentStatus = "Out for Delievery";
 
         console.log(this.cartdetails);
@@ -71,7 +76,7 @@ export class AddToCartComponent implements OnInit {
     }
     this.obj.AddtoOrderDetails(this.orderdetail).subscribe(data=>
       {
-        console.log("Added data for orderdetails is succedded")
+        console.log("Added data for orderdetails is succeded")
         this.obj.updateStatusInCart(this.orderdetail.cartId).subscribe(data2=>
           {
             console.log("Updated status of cart: "+data2.status)

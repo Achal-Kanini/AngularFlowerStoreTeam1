@@ -27,12 +27,15 @@ export class DeleteflowerComponent implements OnInit {
     status:"",
     flower:this.flowerdetails
   }
+  custname : string|null = "";
+ 
   admin:boolean=true;
 usertype:string|null='';
   msg: string='';
   constructor(private router: Router,private route:ActivatedRoute, private obj: FlowerService,private jwtHelper:JwtHelperService) {this.remark = ""}
 
   ngOnInit(): void {
+    this.custname = localStorage.getItem("custname");
     const cart_id=Number(this.route.snapshot.paramMap.get('id'));
     this.getflowerid_api(cart_id);
     this.usertype=localStorage.getItem("userType");
@@ -58,8 +61,8 @@ usertype:string|null='';
       {
         this.msg="Deleted";
         alert(this.msg);
+        this.router.navigate(['/flower']);
       });
-      this.router.navigate(['/flower']);
   }
   
 IsAuthendicated():boolean{

@@ -26,13 +26,15 @@ export class RemovefromcartComponent implements OnInit {
     itemPrice :0,
     status:"",
     flower:this.flowerdetails}
-
+    custname : string|null = "";
+    
   constructor(private router: Router,private route:ActivatedRoute, private obj: CartServiceService,private jwtHelper:JwtHelperService) {
     const cart_id=Number(this.route.snapshot.paramMap.get('cartId'));
+    
     this.getid_api(cart_id);
   }
   ngOnInit(): void {
-    
+    this.custname = localStorage.getItem("custname");
   }
 
   getid_api(id:number):void
@@ -51,8 +53,10 @@ export class RemovefromcartComponent implements OnInit {
       {
         this.msg="Deleted";
         alert(this.msg);
+        this.router.navigate(['/cart']);
       });
-      this.router.navigate(['/cart']);
+      // this.router.navigate(['/cart']);
+      
   }
 
   

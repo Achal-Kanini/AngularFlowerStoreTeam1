@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -21,6 +22,8 @@ export class MyorderComponent implements OnInit {
 
   Admin:boolean=true; usertype:string|null='';
  
+  custname : string|null = "";
+  
 
   constructor(private router: Router,private route:ActivatedRoute, private obj:MyorderService,private jwtHelper:JwtHelperService) {this.remark = ""}
 //constructor(){  }
@@ -30,6 +33,7 @@ export class MyorderComponent implements OnInit {
   // }
   
   ngOnInit(){
+    this.custname = localStorage.getItem("custname");
     this.obj.getOrderDetails().subscribe(data=>{
       this.orderdetails = data;
       console.log(this.orderdetails);
@@ -37,12 +41,21 @@ export class MyorderComponent implements OnInit {
     });
   }
 
-  downloadPDf(Oid:number,Fid:number,Tprice:number,remark:string,paystatus:string){
+  // downloadPDf(Oid:number,Fid:number,Tprice:number,remark:string,paystatus:string){
+  //   const doc=new jsPDF();
+  //   var temp="Bill:-"+"\n"+"\n"+"Order Number: "+Oid.toString()+"\n"+"Flower Id: "+Fid.toString()+"\n"+"Total Price: "+Tprice.toString()+"\n"+"Remark: "+remark+"\n"+"Payment Status: "+paystatus;
+  //   doc.text(temp,10,10);
+  //   doc.save("bill.pdf");
+  // }
+  downloadPDf(Oid:number,Fid:number,Tprice:number,remark:string,paystatus:string,dateofPlaced:Date){
     const doc=new jsPDF();
-    var temp="Bill:-"+"\n"+"\n"+"Order Number: "+Oid.toString()+"\n"+"Flower Id: "+Fid.toString()+"\n"+"Total Price: "+Tprice.toString()+"\n"+"Remark: "+remark+"\n"+"Payment Status: "+paystatus;
+    //var temp="Bill:-"+"\n"+"\n"+"Order Number: "+Oid.toString()+"\n"+"Flower Id: "+Fid.toString()+"\n"+"Total Price: "+Tprice.toString()+"\n"+"Remark: "+remark+"\n"+"Payment Status: "+paystatus;
+    var temp="FlowerBee Bill:-"+"\n"+"\n"+"Order Number: "+Oid.toString()+"\n"+"Date of Place: "+ formatDate(dateofPlaced, 'yyyy-MM-dd', 'en-US') +"\n"+"Total Price: Rs."+Tprice.toString()+"\n"+"Remark: "+remark+"\n"+"Payment Status: "+paystatus;
     doc.text(temp,10,10);
     doc.save("bill.pdf");
   }
+
+
   
 IsAuthendicated():boolean{
   const token:string|null=localStorage.getItem("jwt");

@@ -111,13 +111,13 @@
                                <div class="dropdown">
                                    <button class="dropbtn">
                                        <i class='fas fa-user-circle'></i>
-  
+                                       Hi {{custname}}
                                        <i style="height: 18px; width: 18px;" class="fa fa-caret-down"></i>
                                    </button>
                                    <div class="dropdown-content">
   
                                            <a [routerLink]="['/myorder']" style="margin-left:5px;" class="nav-link">
-                                               My Orders
+                                               Orders
                                            </a>
   
                                        <!-- <a  [routerLink]="['/manageProfile']" style="margin-left:5px;" class="nav-link">Manage Profile</a> -->
@@ -174,8 +174,11 @@
         
             </div>
 
-            <!-- <input id="inputFileToLoad" [(ngModel)]="flowerdetails.flImage" [ngModelOptions]="{standalone: true}"  type="file" (change)="fileloader()" />
-            <div id="imgTest"></div> -->
+            <input id="inputFileToLoad" [(ngModel)]="flowerdetails.flImage" [ngModelOptions]="{standalone: true}"  type="file" (change)="fileloader()" />
+            <div id="imgTest"></div>
+
+
+
 
 
         
@@ -193,7 +196,7 @@
       </form>
    </div>
 </div>
-
+<br><br><br><br>
 <footer id="foo1" class="bord2 footer text-muted">
    <div id="footxt" class="container">
        &copy; 2021 - FlowerStore - Angular and API

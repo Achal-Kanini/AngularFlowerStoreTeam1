@@ -3,5 +3,6 @@ export interface IOrderDetails{
     flowerId:number;
     totalprice:number;
     remark:string,
-    paymentStatus:string
+    paymentStatus:string,
+    dateOfPlaced:Date
 }
